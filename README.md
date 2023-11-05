@@ -25,13 +25,14 @@ we are just given a code with no hints.
 
 ## BACKGROUND:
 first i tried to run the code on a web compiler but i had trouble because of the cryptography module:
-![Screenshot from 2023-11-05 19-16-10](https://github.com/adwait3/pico/assets/148553626/82c5417d-548b-405d-9574-700438b70fc6)
+![Screenshot from 2023-11-05 19-38-11](https://github.com/adwait3/pico/assets/148553626/66297520-9fb2-41a7-9170-7b6889a476a5)
+
 after this i tried running the code on vs code but had issues with compiling it which i could not rectify or understand.
 SO i tried running the code on idle after installing cryptography module via the terminal.
 
 ## SOLUTION:
 i was successfully able to run the code on idle after a silpe debugging of the try and except block,which gave me the output as
-![Screenshot from 2023-11-05 19-16-10](https://github.com/adwait3/pico/assets/148553626/698d6fb5-a64b-4629-a8d8-5eb0ec11bd80)
+![Screenshot from 2023-11-05 19-19-25](https://github.com/adwait3/pico/assets/148553626/f6ac6edb-4230-4849-adeb-4c87b19dd3d2)
  after this i tried reading the code and realised the answer only concerns the enter_liscence()
 functionand rest were redundant, so i focused my attention there,
 ![Screenshot from 2023-11-05 19-24-08](https://github.com/adwait3/pico/assets/148553626/1bc4f7ba-47bf-4cdd-8e45-0ce3915fffab)
