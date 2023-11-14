@@ -105,5 +105,39 @@ picoCTF{moooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo0o}
 
 
 
-# 
-  
+# tunn3l v1s10n
+
+## problem
+we are given a file and been told to recover it 
+## hint
+Weird that it won't display right...
+
+## solution
+The first thing that i notice abt why cantr we open the file is that it dosent have a extension, so i tried to find out its type.
+using terminal commands i couldnt find much so i researched abt how to find the type of a file , and i found out that the first two letters of the file head(first few lines of the file), guves us the type of file in our case BM which stands fir bitmap file.
+
+![Screenshot from 2023-11-14 19-39-59](https://github.com/adwait3/pico/assets/148553626/96754839-0179-447a-9525-48b23f8f324c)
+
+so i tried to add the extension to the file and open it but that didnt work and i was still unable to open the file.
+so i searched abt how to open bmp files and found an application called imagemagik so i decided to give it a try and sure enough it worked and i got a image but it still said not a flag.
+
+![Screenshot from 2023-11-14 20-41-42](https://github.com/adwait3/pico/assets/148553626/bfcba0cc-dba1-47a7-b30a-a314334d1802)
+
+after going through what a non corrupted bitmap looks like in a hex editor i realised in the very beggning it said BAD i figured this was the corrupt part.
+
+![Screenshot from 2023-11-14 20-51-50](https://github.com/adwait3/pico/assets/148553626/8e596238-7bb5-4336-a1da-e08a54a57708)
+
+so after comparing it to a normal bmp image and changing the values to
+  ![Screenshot from 2023-11-14 22-54-36](https://github.com/adwait3/pico/assets/148553626/36717a8c-40e3-49c6-9090-669789037eaf)
+i am able to open the image normally without imagemagic but still not able to view the whole image.
+
+to view the full image i then search where the boundaries of the image are in the hexeditor and find the maximum range for bmp images and change it 
+![Screenshot from 2023-11-14 22-59-30](https://github.com/adwait3/pico/assets/148553626/77aff871-468b-4697-9f5d-cf4b2cd3ad82)
+and sure enough after this im able to open the full image normally and get the flag
+![Screenshot from 2023-11-14 23-00-46](https://github.com/adwait3/pico/assets/148553626/7a0779a6-6bdb-4c94-a561-fab4807bf889)
+
+## flag
+picoCTF{qu1t3_a_v13w_2020}
+
+
+# new caesar
