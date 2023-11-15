@@ -265,3 +265,22 @@ this made me sure abt the text file in picture so i extracted it
 anf got the falg
 ## flag
 picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}
+
+# MacroHard WeakEdge
+## problem
+I've hidden a flag in this file. Can you find it? Forensics is fun.pptm
+
+## solution
+after opening th eppt i found a 58 slides long blank ppt ppt reminded me of the challenge in scavenger hunt with a slide and planets so i decided to try binwalk and found a lot of zip files in the ppt
+![Screenshot from 2023-11-15 19-26-04](https://github.com/adwait3/pico/assets/148553626/27a29d2e-ef79-460f-bd54-1a12a2cd3427)
+after extracting i found most of them were xml files i searched more and found a bin file so i cat it but foud no flag written so figured this is not the file im looking for
+![Screenshot from 2023-11-15 19-34-02](https://github.com/adwait3/pico/assets/148553626/3d492157-7d5c-495c-a8c0-9b1efb0e55bc)
+after searching for more files a found hidden file after catting it i found some text
+![Screenshot from 2023-11-15 19-37-04](https://github.com/adwait3/pico/assets/148553626/754421e0-ca38-418d-8f36-7d62225bcc41)
+
+this seemed gibberish so i tried encryptiong it it was only letters so i thought it would be rot encryption but none worked so i tried the most common encryptions and using trial and error found it to be base 64
+![Screenshot from 2023-11-15 19-40-58](https://github.com/adwait3/pico/assets/148553626/b4dfdb7b-4ab0-4869-aad9-004a13886be6)
+ which gave me the flag
+
+ ## flag
+ picoCTF{D1d_u_kn0w_ppts_r_z1p5}
