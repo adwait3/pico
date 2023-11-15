@@ -141,3 +141,40 @@ picoCTF{qu1t3_a_v13w_2020}
 
 
 # new caesar
+
+## problem
+We found a brand new type of encryption, can you break the secret code? (Wrap with picoCTF{}) lkmjkemjmkiekeijiiigljlhilihliikiliginliljimiklligljiflhiniiiniiihlhilimlhijil
+ we are also given the code for the encryption 
+ ## hints
+ How does the cipher work if the alphabet isn't 26 letters?
+ Even though the letters are split up, the same paradigms still apply.
+
+ ## solution 
+after going through the code for the encryption i could figure out hoe the encryption works 
+* first the code takes the string and converts it into binary which require 8bits per character then splits into groups of 4 bits and concerts them into characters
+![Screenshot from 2023-11-15 10-41-36](https://github.com/adwait3/pico/assets/148553626/4c990af8-cb35-4ec4-805e-2533a8352eb0)
+* then the shift function takes a character c and our key character k and shifts c by k places and we know that our key character is one of the alphabets which gives us 16 possible keys , since 16 is not a large number we can easily bruteforce this.
+
+to get the decryption we can try and reverse the encryption code .
+first we make a code for reversing the b_16 encryption.
+![Screenshot from 2023-11-15 11-22-09](https://github.com/adwait3/pico/assets/148553626/95821df1-33aa-4b56-b900-4fc8153f49d6)
+* in this we iterate over the encoded string in steps of 2 as each char is 4 bits and 2 characters would make a byte.
+* then we convert our chunk of two characters(1 byte) to thier binary representation.
+ in this expression {0:04b}{1:04b}".format(ALPHABET.index(chunk[0]), ALPHABET.index(chunk[1])):
+* o and 1 are the place holders and 04b specifies the format (4 digit binary format)
+* the next part gives the index of the first and second character in our chunk.
+* after this we convert the binary string to characters and add it to plain.
+now we make a reverse for the shifting
+![Screenshot from 2023-11-15 11-32-32](https://github.com/adwait3/pico/assets/148553626/fe3cfa1b-70a5-4c3a-b565-699f5910653a)
+
+this takes a cgaracter c and the key character k and gives the decrypted character by shifting c bacnk by k places inthe alphabets.
+
+next we print all possible decryptions (bruteforce) for every character in the alphabet since we dont know which one is actually the key
+![Screenshot from 2023-11-15 11-36-32](https://github.com/adwait3/pico/assets/148553626/47517619-10e9-4232-8e4a-4f6d433f85bc)
+this loop iterates in all the alphabets and calls various functions to give the decrypted output for each of them
+## final code with output
+![Screenshot from 2023-11-15 11-39-00](https://github.com/adwait3/pico/assets/148553626/4250d036-fb67-4aee-9f88-2ac837492e1e)
+this gives us the answers and after trial and erroe we get the final key f and decrypted answer et_tu?_431db62c5618cd75f1d0b83832b67b46
+
+## flag
+picoCTF{et_tu?_431db62c5618cd75f1d0b83832b67b46}
