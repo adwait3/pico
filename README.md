@@ -222,3 +222,46 @@ trying this gave me the flag.
 ## flag
 picoCTF{j5_15_7r4n5p4r3n7_05df90c8}
 
+# Trivial Flag Transfer Protocol
+
+## problem
+Figure out how they moved the flag.
+and we are given a .pcapng file
+hint
+* What are some other ways to hide data?
+
+## solution
+i searched abt pcapng files and found that they can be opened through wireshark so i went ahead and downloaded wireshark.
+after opening the file in wireshark i found
+![Screenshot from 2023-11-15 18-32-58](https://github.com/adwait3/pico/assets/148553626/33d64fb9-fd0f-4eb3-a145-3346c4aac2bf)
+i learned that tftp stants for trivial file transfer protocol and saw a lot of tftp files with data packets in them after going around wireshark i found out we can export these files to them
+![Screenshot from 2023-11-15 18-32-15](https://github.com/adwait3/pico/assets/148553626/4db63a34-d751-4a00-9a0d-3646cf2de1af)
+out of these files picture 3 seemed a little off since it was way bigger in size than the rest
+i openened the first file instructions.txt 
+![Screenshot from 2023-11-15 18-38-04](https://github.com/adwait3/pico/assets/148553626/154bc06a-5c0d-443a-8baa-645370aec056)
+
+and found gibberish figured it was encypted but since it was only letters and we didnt have any clue abt a key i tried the possible encryptions using cyberchef and found it to be ROT 13
+![Screenshot from 2023-11-15 18-40-29](https://github.com/adwait3/pico/assets/148553626/ad0ae05a-aa65-49fa-b7e3-89da89b8b269)
+this says
+TFTP DOESNT ENCRYPT OUR TRAFFIC SO WE MUST DISGUISE OUR FLAG TRANSFER. FIGURE OUT A WAY TO HIDE THE FLAG AND I WILL CHECK BACK FOR THE PLAN
+
+i coudldnt figuire this out so i opened the other file plan it had the same rot 13 encryption
+![Screenshot from 2023-11-15 18-43-43](https://github.com/adwait3/pico/assets/148553626/85f89c4e-651d-429c-a96f-958e5d1333db)
+this says
+I USED THE PROGRAM AND HID IT WITH-DUE DILIGENCE. CHECK OUT THE PHOTOS
+it says used the program and hid it in photos. so i opened our program file. and started looking at the files inside for clues and found teh control file 
+![Screenshot from 2023-11-15 18-47-22](https://github.com/adwait3/pico/assets/148553626/24a9ea7e-6d93-4c49-adeb-a8c66eda3266)
+this seemed like a major clue reading further i found this in the amn file
+![Screenshot from 2023-11-15 18-55-41](https://github.com/adwait3/pico/assets/148553626/b790f761-bc95-4a53-ae7d-1547f6216451)
+so i tried installing the program as it can help me get the flag from the images but i was unable to install the file
+![Screenshot from 2023-11-15 18-58-06](https://github.com/adwait3/pico/assets/148553626/252a40ab-2db0-4faa-af07-2901247f389a)
+so i installed the steghide software through terminal.
+after installing and trying it out it asked for passphrase 
+![Screenshot from 2023-11-15 19-03-15](https://github.com/adwait3/pico/assets/148553626/c35f5da5-3e21-446a-b9d4-fe26821f5634)
+i looked through instrusctions and plan again for some clues and tried a lot of passwords and finally DUEDILIGENCE worked
+![Screenshot from 2023-11-15 19-06-09](https://github.com/adwait3/pico/assets/148553626/3ec74a34-ece2-4d92-bae8-4bc9cc69ef7f)
+this made me sure abt the text file in picture so i extracted it 
+![Screenshot from 2023-11-15 19-12-07](https://github.com/adwait3/pico/assets/148553626/d4423020-0a46-4b11-b65f-efd5a1296332)
+anf got the falg
+## flag
+picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}
