@@ -284,3 +284,38 @@ this seemed gibberish so i tried encryptiong it it was only letters so i thought
 
  ## flag
  picoCTF{D1d_u_kn0w_ppts_r_z1p5}
+
+
+# miniRSA
+## problem
+Let's decrypt this: ciphertext? Something seems a bit small.
+hints
+* RSA tutorial
+* How could having too small an e affect the security of this 2048 bit key?
+* Make sure you don't lose precision, the numbers are pretty big (besides the e value)
+
+## solution
+
+## flag
+picoCTF{n33d_a_lArg3r_e_d0cd6eae}
+
+
+# basic-mod1
+## problem
+We found this weird message being passed around on the servers, we think we have a working decryption scheme.
+Download the message here.
+Take each number mod 37 and map it to the following character set: 0-25 is the alphabet (uppercase), 26-35 are the decimal digits, and 36 is an underscore.
+Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
+hints
+* Do you know what mod 37 means?
+* mod 37 means modulo 37. It gives the remainder of a number after being divided by 37.
+
+## solution
+first after opening the message it seemed pretty straightforward 
+![Screenshot from 2023-11-15 22-35-25](https://github.com/adwait3/pico/assets/148553626/7270ec23-161b-45f4-9c26-1ed5ea4b2b0b)
+looking at the hints i calculated the mod of each of the numbers giving me
+![Screenshot from 2023-11-15 22-39-00](https://github.com/adwait3/pico/assets/148553626/dd750ff4-8c16-4d4a-ad6c-18b203def99b)
+![Screenshot from 2023-11-15 22-39-09](https://github.com/adwait3/pico/assets/148553626/a70c3b5d-ee5f-4d86-be71-8af49906a8c1)
+then i mapped these according to the given parameters
+## flag
+picoCTF{n33d_a_lArg3r_e_d0cd6eae}
