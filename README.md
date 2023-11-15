@@ -1,5 +1,5 @@
 # pico
-this is my repository for writeups of the pico ctf challanges problems for particular domains are in their respective branches and this contains writups for extra problems
+this is my repository for writeups of the pico ctf challanges problems for particular domains are in their respective branches which can be seen through code and this contains writups for extra problems
 
 
 # PYTHON WRANGLING
