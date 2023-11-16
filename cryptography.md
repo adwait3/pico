@@ -52,7 +52,6 @@ hints
 ## flag
 picoCTF{n33d_a_lArg3r_e_d0cd6eae}
 
-
 # basic-mod1
 ## problem
 We found this weird message being passed around on the servers, we think we have a working decryption scheme.
@@ -69,6 +68,40 @@ first after opening the message it seemed pretty straightforward
 looking at the hints i calculated the mod of each of the numbers giving me
 ![Screenshot from 2023-11-15 22-39-00](https://github.com/adwait3/pico/assets/148553626/dd750ff4-8c16-4d4a-ad6c-18b203def99b)
 ![Screenshot from 2023-11-15 22-39-09](https://github.com/adwait3/pico/assets/148553626/a70c3b5d-ee5f-4d86-be71-8af49906a8c1)
-then i mapped these according to the given parameters
+
+then i mapped these according to the given parameters which gaave me 
+R0UND_N_R0UND_ADD17EC2
+
 ## flag
-picoCTF{n33d_a_lArg3r_e_d0cd6eae}
+picoCTF{R0UND_N_R0UND_ADD17EC2}
+
+
+# basic-mod2
+## problem
+A new modular challenge!
+Download the message here.
+Take each number mod 41 and find the modular inverse for the result. Then map to the following character set: 1-26 are the alphabet, 27-36 are the decimal digits, and 37 is an underscore.
+Wrap your decrypted message in the picoCTF flag format (i.e. picoCTF{decrypted_message})
+hints
+* Do you know what the modular inverse is?
+* The inverse modulo z of x is the number, y that when multiplied by x is 1 modulo z
+* It's recommended to use a tool to find the modular inverses
+
+## solution
+first things first i read the file 
+![Screenshot from 2023-11-16 11-50-45](https://github.com/adwait3/pico/assets/148553626/ef4a1695-0cc6-4408-996a-d88dd6750a13)
+then like in mod 1 i calculated mod41 for all the digits
+![Screenshot from 2023-11-16 12-02-02](https://github.com/adwait3/pico/assets/148553626/fb7f066f-7370-4167-a09d-2e66a5623eb9)
+![Screenshot from 2023-11-16 12-02-11](https://github.com/adwait3/pico/assets/148553626/4612cbfd-3b42-4ab4-92c6-e3ca51d204fa)
+
+22 3 28 26 16 9 26 24 23 10 36 4 16 31 10 31 1 31 1 1 14 1 1  
+
+after this using the hints i calculated inverse modulo for each number manualy which gave me 
+28 14 22 30 18 32 30 12 25 37 8 31 18 4 37 4 1 4 1 1 3 1 1
+now i mapped these according to the question which gave me 
+
+1NV3r53LY_H4RD_DADAACAA
+
+## flag
+picoCTF{1NV3r53LY_H4RD_DADAACAA}
+
