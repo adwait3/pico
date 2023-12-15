@@ -32,3 +32,29 @@ this block tells us that
   ## KEY;
   picoCTF{1n_7h3_|<3y_of_0d208392}
 
+
+# GDB baby step 1
+## PROBLEM:
+Can you figure out what is in the eax register at the end of the main function? Put your answer in the picoCTF flag format: picoCTF{n} where n is the contents of the eax register in the decimal number base. If the answer was 0x11 your flag would be picoCTF{17}.
+Disassemble this.
+
+## SOLUTION:
+the problem statement in this was pretty much self explanitory and i did exactly everything it specified .
+first i learned about gdb and how to use it to dissassemble the file 
+after using the help 
+![Screenshot from 2023-12-16 01-22-40](https://github.com/adwait3/pico/assets/148553626/921b2f86-59b7-4ce4-8bfe-ec197ff3d8d2)
+then i used help all and found 
+![Screenshot from 2023-12-16 01-25-00](https://github.com/adwait3/pico/assets/148553626/b1097e4b-abdb-426d-8546-9b8557099f9e)
+so i used this command to dissasemble the main and found the eax register
+
+![Screenshot from 2023-12-16 01-28-09](https://github.com/adwait3/pico/assets/148553626/4920ea67-c4a3-44c0-b4d9-3ce5d690ee14)
+
+i converted this hexadecimal to integer and got 549698
+
+![Screenshot from 2023-12-16 01-29-44](https://github.com/adwait3/pico/assets/148553626/68c92d46-fa43-4340-a1c9-0365b281c2d4)
+and got the flag
+
+  ## FLAG
+  picoCTF{549698}
+
+
