@@ -51,4 +51,30 @@ then after that i typed p to complete the game which gave me the flag.
 ## FLAG
 picoCTF{gamer_m0d3_enabled_f4f6ad7d}
 
+ # buffer overflow 0
+  ## problem
+  Smash the stack
+Let's start off simple, can you overflow the correct buffer? The program is available here. You can view source here. And connect with it using:
+nc saturn.picoctf.net 64712
+hints
+* How can you trigger the flag to print?
+* If you try to do the math by hand, maybe try and add a few more characters. Sometimes there are things you aren't expecting.
+* Run man gets and read the BUGS section. How many characters can the program really read?
 
+## SOLUTION
+first i ran the program and got
+
+![Screenshot from 2023-12-16 00-52-55](https://github.com/adwait3/pico/assets/148553626/86f3c5b0-169c-4121-b09a-c75be5bd59ea)
+
+then according to the second hint i read the man gets and found out it can be used to read very very long strings and thats why shouldnt be used and fgets shoulf be used instead.
+![Screenshot from 2023-12-16 00-59-38](https://github.com/adwait3/pico/assets/148553626/3aba529d-0809-4ed6-bc38-3c19b944820c)
+then i looked at the source code and found that gets had been used there
+
+![Screenshot from 2023-12-16 01-02-12](https://github.com/adwait3/pico/assets/148553626/962cb1e7-0846-476f-9c43-09f76ccddedf)
+gets had been used to take the input of a buf1 which was of size 100
+looking at the hints and question name i thought this might be related to overloading the buffer so i treid to run the program again witha long string and sure enough it gave me the answer
+![Screenshot from 2023-12-16 01-06-00](https://github.com/adwait3/pico/assets/148553626/76e039ca-0c56-4d18-9a95-082d8ee8f4fc)
+
+
+## FLAG
+picoCTF{ov3rfl0ws_ar3nt_that_bad_9f2364bc}
